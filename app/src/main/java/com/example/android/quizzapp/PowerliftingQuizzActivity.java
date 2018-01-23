@@ -62,11 +62,10 @@ public class PowerliftingQuizzActivity extends AppCompatActivity {
         savedInstanceState.putString(FED_NAME, getFederationsName.getText().toString());
         savedInstanceState.putBoolean(EDIT_TEXT_STATE, getFederationsName.isEnabled());
 
-        //Save states of RadioButtons as booleans for first question
+        //Save states of and checks for RadioButtons as booleans for first question
         savedInstanceState.putBoolean(RB_1_STATE, firstQuestionFirstRB.isEnabled());
         savedInstanceState.putBoolean(RB_2_STATE, firstQuestionSecondRB.isEnabled());
         savedInstanceState.putBoolean(RB_3_STATE, firstQuestionThirdRB.isEnabled());
-        //Save Checks of RadioGroups as booleans for first question
         savedInstanceState.putBoolean(RB_1_CHECKED, firstQuestionFirstRB.isChecked());
         savedInstanceState.putBoolean(RB_2_CHECKED, firstQuestionSecondRB.isChecked());
         savedInstanceState.putBoolean(RB_3_CHECKED, firstQuestionThirdRB.isChecked());
@@ -81,13 +80,15 @@ public class PowerliftingQuizzActivity extends AppCompatActivity {
         savedInstanceState.putBoolean(RB_3AGE_CHECKED, ageCategoryThirdRB.isChecked());
 
         //Save states of RadioButtons as booleans for 2nd question
-        savedInstanceState.putBoolean(CB_1_STATE, firstQuestionFirstRB.isEnabled());
-        savedInstanceState.putBoolean(CB_2_STATE, firstQuestionSecondRB.isEnabled());
-        savedInstanceState.putBoolean(CB_3_STATE, firstQuestionThirdRB.isEnabled());
+        savedInstanceState.putBoolean(CB_1_STATE, powerlifting_cb_1.isEnabled());
+        savedInstanceState.putBoolean(CB_2_STATE, powerlifting_cb_2.isEnabled());
+        savedInstanceState.putBoolean(CB_3_STATE, powerlifting_cb_3.isEnabled());
         //Save Checks of RadioGroups as booleans for 2nd question
-        savedInstanceState.putBoolean(CB_1_CHECKED, firstQuestionFirstRB.isChecked());
-        savedInstanceState.putBoolean(CB_2_CHECKED, firstQuestionSecondRB.isChecked());
-        savedInstanceState.putBoolean(CB_3_CHECKED, firstQuestionThirdRB.isChecked());
+        savedInstanceState.putBoolean(CB_1_CHECKED, powerlifting_cb_1.isChecked());
+        savedInstanceState.putBoolean(CB_2_CHECKED, powerlifting_cb_2.isChecked());
+        savedInstanceState.putBoolean(CB_3_CHECKED, powerlifting_cb_3.isChecked());
+        Log.i("State 1, 2,3 ", Boolean.toString(firstQuestionFirstRB.isEnabled()) + Boolean.toString(firstQuestionSecondRB.isEnabled()) + Boolean.toString(firstQuestionThirdRB.isEnabled()));
+
     }
 
     /*
@@ -134,15 +135,17 @@ public class PowerliftingQuizzActivity extends AppCompatActivity {
         boolean firstCbState = savedInstanceState.getBoolean(CB_1_STATE);
         boolean secondCbState = savedInstanceState.getBoolean(CB_2_STATE);
         boolean thirdCbState = savedInstanceState.getBoolean(CB_3_STATE);
-        powerlifting_cb_1.setEnabled(!firstCbState);
-        powerlifting_cb_2.setEnabled(!secondCbState);
-        powerlifting_cb_3.setEnabled(!thirdCbState);
+        powerlifting_cb_1.setEnabled(firstCbState);
+        powerlifting_cb_2.setEnabled(secondCbState);
+        powerlifting_cb_3.setEnabled(thirdCbState);
         boolean firstCbChecked = savedInstanceState.getBoolean(CB_1_CHECKED);
         boolean secondCbChecked = savedInstanceState.getBoolean(CB_2_CHECKED);
         boolean thirdCbChecked = savedInstanceState.getBoolean(CB_3_CHECKED);
         powerlifting_cb_1.setChecked(firstCbChecked);
-        powerlifting_cb_1.setChecked(secondCbChecked);
-        powerlifting_cb_1.setChecked(thirdCbChecked);
+        powerlifting_cb_2.setChecked(secondCbChecked);
+        powerlifting_cb_3.setChecked(thirdCbChecked);
+        Log.i("State 1, 2,3 ", Boolean.toString(firstQuestionFirstRB.isEnabled()) + Boolean.toString(firstQuestionSecondRB.isEnabled()) + Boolean.toString(firstQuestionThirdRB.isEnabled()));
+
     }
 
     /*
@@ -198,6 +201,7 @@ public class PowerliftingQuizzActivity extends AppCompatActivity {
             }
         });
 
+
         /*
          Adds a state change listener to the fourth questions radio group. When user chooses one of the answers
          the RadioGroups RadioButtons get disabled and rightAnswersLoL or wrongAnswersLoL and questionsAnsweredLoL global variables get updated.
@@ -205,7 +209,7 @@ public class PowerliftingQuizzActivity extends AppCompatActivity {
         ageCategoryRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-
+                Log.i("State 1, 2,3 ", Boolean.toString(firstQuestionFirstRB.isEnabled()) + firstQuestionSecondRB.isEnabled() + firstQuestionThirdRB.isEnabled());
                 if (ageCategoryFirstRB.isChecked() || ageCategoryThirdRB.isChecked()) {
                     wrongAnswersPL += 1;
                     disableRadiobuttonsQuestion3();
@@ -218,7 +222,6 @@ public class PowerliftingQuizzActivity extends AppCompatActivity {
                 enableResultsButton();
             }
         });
-
         /*
         Add logical IF statements to check how many Checkboxes are checked. When 2 of them are checked, disable the checkboxes and update rightAnswersLoL or wrongAnswersLoL and questionsAnsweredLoL global variables
          */

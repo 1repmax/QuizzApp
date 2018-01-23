@@ -1,0 +1,60 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">QuizzApp</string>
+    <string name="quizz_title">Quizz</string>
+    <string name="tutorial">In this quiz we are going to test your knowledge about sport called powerlifting and popular esport game League of Legends. Enter your name in the field below and choose your quiz category. You have only one try to answer each question!</string>
+    <string name="start_button">Start</string>
+    <string name="instructions">Instructions</string>
+    <string name="enter_name_hint">Enter name</string>
+
+    <!--Questions and answers for powerlifting application 1st question -->
+    <string name="first_question_pl">How many movements are there in the powerlifting competition?</string>
+    <string name="question_one_answer_1">2</string>
+    <string name="question_one_answer_2">3</string>
+    <string name="question_one_answer_3">4</string>
+
+    <!--Questions and answers for LoL application 1st question -->
+    <string name="first_question_lol">How many champions are there in League of Legends?</string>
+    <string name="question_one_answer_1_lol">115</string>
+    <string name="question_one_answer_2_lol">126</string>
+    <string name="question_one_answer_3_lol">139</string>
+
+    <!--Questions and answers for powerlifting application 2nd question -->
+    <string name="second_question_pl">If an athlete gets no result in one of movements he:</string>
+    <string name="question_two_answer_1_pl">He is not allowed to keep competing</string>
+    <string name="question_two_answer_2_pl">He is allowed to keep competing</string>
+    <string name="question_two_answer_3_pl">His result is not evaluated for graduation ceremony</string>
+
+    <!--Questions and answers for LoL application 2nd question -->
+    <string name="second_question_lol">What are main objectives in game to be destroyed?</string>
+    <string name="question_two_answer_1_lol">Turrets</string>
+    <string name="question_two_answer_2_lol">Nexus</string>
+    <string name="question_two_answer_3_lol">Wards</string>
+
+    <!--Questions and answers for powerlifting application 3rd question -->
+    <string name="third_question_pl">What IPF stands for?</string>
+    <string name="pl_edittext_hint">Enter full name here</string>
+
+    <!--Questions and answers for LoL application 3rd question -->
+    <string name="third_question_lol">What is the name of newest champion released in League of Legends?</string>
+    <string name="lol_edittext_hint">Enter full name here</string>
+
+    <!--Questions and answers for powerlifting application 4th question -->
+    <string name="fourth_question_pl">What age categories are represented in powerlifting competition?</string>
+    <string name="question_four_answer_1">Juniors, Open, Masters</string>
+    <string name="question_four_answer_2">Subjuniors, Juniors, Open, Masters I, II, III and IV</string>
+    <string name="question_four_answer_3">Subjuniors, Open, Masters I, II, III and IV</string>
+
+    <!--Questions and answers for LoL application 4th question -->
+    <string name="fourth_question_lol">What roles are there in the game?</string>
+    <string name="question_four_answer_1_lol">Top, Mid, Jungle</string>
+    <string name="question_four_answer_2_lol">Top, Mid, Jungle, Support, ADC</string>
+    <string name="question_four_answer_3_lol">Top, Mid, Support, ADC</string>
+
+    <string name="powerlifting_button">Powerlifting</string>
+    <string name="lol_button">League of Legends</string>
+
+    <string name="result_button">Get results</string>
+
+    <string name="toast_message">Out of <xliff:g example="4" id="number">%d</xliff:g> questions you answered right to <xliff:g example="2" id="right">%d</xliff:g>  of them </string>
+
+</resources>

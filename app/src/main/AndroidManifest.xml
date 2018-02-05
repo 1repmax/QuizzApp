@@ -17,12 +17,8 @@
         </activity>
         <activity
             android:name=".PowerliftingQuizzActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/powerlifting_button">
-        </activity>
-        <activity android:name=".LolQuizzActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/lol_button">
+            android:label="@string/powerlifting_button"
+            android:parentActivityName=".MainActivity">
         </activity>
     </application>
 

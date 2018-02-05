@@ -11,19 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/layout_16dp_margin"
-        android:orientation="vertical"
         android:focusable="true"
-        android:focusableInTouchMode="true">
-
-        <Button
-            android:id="@+id/lol_launch_button"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:adjustViewBounds="false"
-            android:contentDescription="TODO"
-            android:cropToPadding="false"
-            android:textSize="@dimen/launch_activity_button_text_size"
-            android:text="@string/lol_button" />
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/powerlifting_launch_button"
@@ -31,29 +21,28 @@
             android:layout_height="100dp"
             android:adjustViewBounds="false"
             android:contentDescription="TODO"
-            android:textSize="@dimen/launch_activity_button_text_size"
             android:cropToPadding="false"
-            android:text="@string/powerlifting_button" />
+            android:text="@string/powerlifting_button"
+            android:textSize="@dimen/launch_activity_button_text_size" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/instructions"
-            android:layout_marginTop="@dimen/margin_8dp"
             android:layout_marginBottom="@dimen/margin_8dp"
+            android:layout_marginTop="@dimen/margin_8dp"
             android:gravity="center"
+            android:text="@string/instructions"
             android:textSize="@dimen/instructions_title_size"/>
 
         <TextView
             android:id="@+id/instructions_text"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_8dp"
             android:layout_marginTop="@dimen/margin_8dp"
-            android:layout_weight="2"
-            android:text="@string/tutorial"
             android:justificationMode="inter_word"
-            android:lineSpacingExtra="@dimen/spacing"/>
+            android:lineSpacingExtra="@dimen/spacing"
+            android:text="@string/tutorial" />
         <EditText
             android:id="@+id/name_textfield"
             android:layout_width="match_parent"

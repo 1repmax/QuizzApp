@@ -1,7 +1,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">QuizzApp</string>
     <string name="quizz_title">Quizz</string>
-    <string name="tutorial">In this quiz we are going to test your knowledge about sport called powerlifting and popular esport game League of Legends. Enter your name in the field below and choose your quiz category. You have only one try to answer each question!</string>
+    <string name="tutorial">In this quiz we are going to test your knowledge about sport called powerlifting. Enter your name in the field below and press the button to start quiz!</string>
     <string name="start_button">Start</string>
     <string name="instructions">Instructions</string>
     <string name="enter_name_hint">Enter name</string>
@@ -55,6 +55,6 @@
 
     <string name="result_button">Get results</string>
 
-    <string name="toast_message">Out of <xliff:g example="4" id="number">%d</xliff:g> questions you answered right to <xliff:g example="2" id="right">%d</xliff:g>  of them </string>
+    <string name="toast_message"><xliff:g example="Raivo" id="number">%s</xliff:g>, you answered right to <xliff:g example="4" id="number">%d</xliff:g> questions out of <xliff:g example="2" id="right">%d</xliff:g></string>
 
 </resources>

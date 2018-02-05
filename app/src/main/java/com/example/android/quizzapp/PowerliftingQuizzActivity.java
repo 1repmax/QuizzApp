@@ -196,7 +196,6 @@ public class PowerliftingQuizzActivity extends AppCompatActivity {
                     disableRadiobuttonsQuestion1();
                 }
                 questionsAnsweredPL += 1;
-                displayAnswers(rightAnswersPL, wrongAnswersPL, questionsAnsweredPL);
                 enableResultsButton();
             }
         });
@@ -218,7 +217,6 @@ public class PowerliftingQuizzActivity extends AppCompatActivity {
                     disableRadiobuttonsQuestion3();
                 }
                 questionsAnsweredPL += 1;
-                displayAnswers(rightAnswersPL, wrongAnswersPL, questionsAnsweredPL);
                 enableResultsButton();
             }
         });
@@ -231,13 +229,13 @@ public class PowerliftingQuizzActivity extends AppCompatActivity {
                 if ((powerlifting_cb_3.isChecked() && powerlifting_cb_2.isChecked()) || (powerlifting_cb_3.isChecked() && powerlifting_cb_1.isChecked()) || powerlifting_cb_2.isChecked()
                         && powerlifting_cb_1.isChecked()) {
                     disableCheckboxes();
+                    questionsAnsweredPL += 1;
                 }
                 if (powerlifting_cb_2.isChecked() && powerlifting_cb_3.isChecked()) {
                     rightAnswersPL += 1;
                 } else if ((powerlifting_cb_1.isChecked() && powerlifting_cb_2.isChecked()) || (powerlifting_cb_1.isChecked() && powerlifting_cb_3.isChecked())) {
                     wrongAnswersPL += 1;
                 }
-                displayAnswers(rightAnswersPL, wrongAnswersPL, questionsAnsweredPL);
                 enableResultsButton();
             }
         });
@@ -251,13 +249,13 @@ public class PowerliftingQuizzActivity extends AppCompatActivity {
                 if ((powerlifting_cb_3.isChecked() && powerlifting_cb_2.isChecked()) || (powerlifting_cb_3.isChecked() && powerlifting_cb_1.isChecked()) || powerlifting_cb_2.isChecked()
                         && powerlifting_cb_1.isChecked()) {
                     disableCheckboxes();
+                    questionsAnsweredPL += 1;
                 }
                 if (powerlifting_cb_2.isChecked() && powerlifting_cb_3.isChecked()) {
                     rightAnswersPL += 1;
                 } else if ((powerlifting_cb_1.isChecked() && powerlifting_cb_2.isChecked()) || (powerlifting_cb_1.isChecked() && powerlifting_cb_3.isChecked())) {
                     wrongAnswersPL += 1;
                 }
-                displayAnswers(rightAnswersPL, wrongAnswersPL, questionsAnsweredPL);
                 enableResultsButton();
             }
         });
@@ -271,13 +269,13 @@ public class PowerliftingQuizzActivity extends AppCompatActivity {
                 if ((powerlifting_cb_3.isChecked() && powerlifting_cb_2.isChecked()) || (powerlifting_cb_3.isChecked() && powerlifting_cb_1.isChecked()) || powerlifting_cb_2.isChecked()
                         && powerlifting_cb_1.isChecked()) {
                     disableCheckboxes();
+                    questionsAnsweredPL += 1;
                 }
                 if (powerlifting_cb_2.isChecked() && powerlifting_cb_3.isChecked()) {
                     rightAnswersPL += 1;
                 } else if ((powerlifting_cb_1.isChecked() && powerlifting_cb_2.isChecked()) || (powerlifting_cb_1.isChecked() && powerlifting_cb_3.isChecked())) {
                     wrongAnswersPL += 1;
                 }
-                displayAnswers(rightAnswersPL, wrongAnswersPL, questionsAnsweredPL);
                 enableResultsButton();
             }
         });
@@ -291,8 +289,6 @@ public class PowerliftingQuizzActivity extends AppCompatActivity {
                 if (i == EditorInfo.IME_ACTION_DONE) {
                     getAnswerString();
 
-                    displayAnswers(rightAnswersPL, wrongAnswersPL, questionsAnsweredPL);
-                    Log.i("Log this stuff", Integer.toString(questionsAnsweredPL));
                     //Hides keyboard when user presses DONE and clear focus from EditText
                     InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                     in.hideSoftInputFromWindow(getFederationsName.getApplicationWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
@@ -304,6 +300,14 @@ public class PowerliftingQuizzActivity extends AppCompatActivity {
             }
         });
 
+
+        /*
+         * Getting the Intent that started this activity and extracting the string passed into the Edittext field in first activity
+         */
+        Intent startQuiz = getIntent();
+        final String name = startQuiz.getStringExtra(MainActivity.EXTRA_MESSAGE);
+//        nameField = findViewById(R.id.user_name);
+//        nameField.setText(name);
 /*
 Adds a OnClickListener to the getResults button. When user clicks this button an Toast is created and results are passed into the toast.
  */
@@ -311,7 +315,7 @@ Adds a OnClickListener to the getResults button. When user clicks this button an
             @Override
             public void onClick(View view) {
 
-                String toast_message = getString(R.string.toast_message, questionsAnsweredPL, rightAnswersPL);
+                String toast_message = getString(R.string.toast_message, name, rightAnswersPL, questionsAnsweredPL);
                 Context context = getApplicationContext();
                 int duration = Toast.LENGTH_LONG;
                 Toast toast = Toast.makeText(context, toast_message, duration);
@@ -319,19 +323,7 @@ Adds a OnClickListener to the getResults button. When user clicks this button an
             }
         });
 
-        /*
-         * Getting the Intent that started this activity and extracting the string passed into the Edittext field in first activity
-         */
-        Intent startQuiz = getIntent();
-        String name = startQuiz.getStringExtra(MainActivity.EXTRA_MESSAGE);
-        nameField = findViewById(R.id.user_name);
-        nameField.setText(name);
     }
-
-    public void displayAnswers(int rightAnswers, int wrongAnswers, int questionsAnswered) {
-        nameField.setText("Right: " + Integer.toString(rightAnswers) + "  Wrong: " + Integer.toString(wrongAnswers) + " Answered: " + questionsAnswered);
-    }
-
 
     /*
     Public method which  compares the Editable of Edittext to right answer and increases global variable rightAnswers or wrongAnswers.
@@ -340,11 +332,9 @@ Adds a OnClickListener to the getResults button. When user clicks this button an
         if (getFederationsName.getText().toString().toLowerCase().equals(orgName)) {
             rightAnswersPL += 1;
             questionsAnsweredPL += 1;
-            displayAnswers(rightAnswersPL, wrongAnswersPL, questionsAnsweredPL);
         } else {
             wrongAnswersPL += 1;
             questionsAnsweredPL += 1;
-            displayAnswers(rightAnswersPL, wrongAnswersPL, questionsAnsweredPL);
         }
     }
 

@@ -14,14 +14,13 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String EXTRA_MESSAGE = "enteredNameKey";
+    public String name;
     /*
     Declaration of the Views that are used in the MainActivity
      */
     Button startPowerliftingQuizz, startLolQuizz;
     EditText enterName;
-    public String name;
-    public static final String EXTRA_MESSAGE= "enteredNameKey";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
          * Initialization of Views used in the application.
          */
         startPowerliftingQuizz = findViewById(R.id.powerlifting_launch_button);
-        startLolQuizz = findViewById(R.id.lol_launch_button);
         enterName = findViewById(R.id.name_textfield);
 
         //Doesn't show input keyboard until the Edittext View is being focused
@@ -68,13 +66,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        startLolQuizz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setStartLolQuizz();
-            }
-        });
-
     }
 
     /**
@@ -86,8 +77,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(startPLQuizIntent);
     }
 
-    public void setStartLolQuizz(){
-        Intent startLolQuizzIntent = new Intent(this, LolQuizzActivity.class);
-        startActivity(startLolQuizzIntent);
-    }
 }
